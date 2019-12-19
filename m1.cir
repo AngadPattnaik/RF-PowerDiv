@@ -1,0 +1,30 @@
+MOS BIASED IN TRIODE REGION FOR Rds=50ohm, Vgs=4v and Vdd=2.8v
+
+*Including the 180nm technology file
+.include 180nm_bulk.txt
+
+*Biasing gate at 4v
+vgg 1 0 dc 1.8v
+
+*Specifying the MOSFET
+m1 2 1 0 0 NMOS W=82u m=10
+
+*DC source of 0v to measure current
+vid 4 2 dc 0v
+
+*Drain biased such that triode region ensues
+vdd 4 0 dc 1.1v
+
+.op
+
+.control
+
+run
+
+*Print Rds at the chosen operating point
+print v(2)/vid#branch
+
+
+.endc
+
+.end
