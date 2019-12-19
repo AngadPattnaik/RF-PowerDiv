@@ -1,0 +1,45 @@
+*Including the 180nm technology file
+.include 180nm_bulk.txt
+
+
+vgg1 6 3 dc 1.8v
+m1 1 6 3 0 NMOS W=82u m=10
+vdd1 1 10 dc 1.1v
+rd1 10 3 10
+
+vgg2 4 2 dc 1.8v
+m2 1 4 2 0 NMOS W=82u m=10
+vdd2 1 11 dc 1.1v
+rd2 11 2 10
+
+vgg3 5 2 dc 1.8v
+m3 3 5 2 0 NMOS W=82u m=10
+vdd3 3 12 dc 1.1v
+rd3 12 2 10
+
+c1 1 9 1u
+c2 3 7 1u
+c3 2 8 1u
+
+
+V1 10 0 dc 0 ac 1 
+
+r1 9 10 50
+r2 7 0 50
+r3 8 0 50
+
+.ac dec 10  100Meg 500G
+
+.control
+run
+
+plot vdb(2) vdb(3) xlog
+
+*plot {57.29*vp(3)} {57.29*vp(2)} xlog
+
+.endc
+
+.end
+
+
+
