@@ -1,0 +1,48 @@
+*Including the 180nm technology file
+.include 180nm_bulk.txt
+.option rshunt = 1.0e12
+
+vgg1 6 3 dc 2.1v
+m1 1 6 3 0 NMOS W=82u m=10
+vdd1 1 10 dc 1.1v
+ld1 10 3 100n
+
+vgg2 4 2 dc 2.1v
+m2 c 4 2 0 NMOS W=82u m=10
+vdd2 c 11 dc 1.1v
+ld2 11 2 100n
+
+vgg3 5 2 dc 2.1v
+m3 3 5 2 0 NMOS W=82u m=10
+vdd3 3 12 dc 1.1v
+ld3 12 2 100n
+
+c1 1 9 100n
+c2 a 7 100n
+c3 b 8 100n
+
+csa 3 a 10n
+csb 2 b 10n
+csc 1 c 10n
+
+V1 10 0 dc 0 ac 1 
+
+r1 9 10 50
+r2 7 0 50
+r3 8 0 50
+
+.ac dec 10  100Meg 100G
+
+.control
+run
+
+plot vdb(7) vdb(8) xlog
+
+*plot {57.29*vp(3)} {57.29*vp(2)} xlog
+
+.endc
+
+.end
+
+
+
