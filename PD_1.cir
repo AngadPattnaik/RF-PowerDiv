@@ -13,8 +13,8 @@ vdd2 c 11 dc 0.6v
 ld2 11 b 100n
 
 vgg3 5 2 dc 1.4v
-m3 3 5 2 0 NMOS W=80u 
-vdd3 3 12 dc 0.6v
+m3 a 5 2 0 NMOS W=80u 
+vdd3 a 12 dc 0.6v
 ld3 12 2 100n
 
 c1 1 9 1n
